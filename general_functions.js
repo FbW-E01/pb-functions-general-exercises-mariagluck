@@ -1,8 +1,11 @@
 // 1. Write a function that takes in one parameter and logs that parameter 3 times into the console.
 
-function tripleRepeat(string) {
-    return string.repeat(3);
-}
+
+const tripleRepeat = string => string.repeat(3);
+// OR LIKE THIS:
+// function tripleRepeat(string) {
+//     return string.repeat(3);
+// }
 
 console.log(tripleRepeat("<<This is a triple phrase test>> "));
 
@@ -12,24 +15,23 @@ console.log(tripleRepeat("<<This is a triple phrase test>> "));
 
 // 2. Write a function that takes in one parameter and returns that parameter repeated five times. For the input "Cat" it would return "CatCatCatCatCat"
 
-function quintupleRepeat(string) {
-    return string.repeat(5);
-}
+const quintupleRepeat = (word) => {
+        let Result = "";
+        for (let i = 1; i <= 5; i++) {
+            Result += word;
+        }
+        console.log(Result);     
+    }
+// / OR LIKE this
+// const quintupleRepeat = string => string.repeat(5);
+// OR LIKE THIS:
+// function quintupleRepeat(string) {
+//     return string.repeat(5);
+// }
+console.log(quintupleRepeat("Cat"));
 
-console.log(quintupleRepeat("CAT "));
+// ANSWER: it prints CatCatCatCatCat
 
-// ANSWER: it prints CAT CAT CAT CAT CAT 
-
-// OR THIS:
-// const quintupleRepeat = (word) => {
-//     let words = "";
-//     for (let counter = 0; counter < 5; counter++) {
-//         words = words + word;
-//         return words;
-//       }
-// };
-
-// console.log(quintupleRepeat("CAT"));
 
 // 3. Write a function that takes in two parameters, the first one should be a number and the 2nd one should be a string. The functions returns the 2nd argument repeated as many times as the 1st argument defins. For the inputs `3` and "Woah" it should return `WoahWoahWoah`
 
@@ -64,9 +66,7 @@ console.log(largestNumber([1,6,83,91,0,-4,1337,5]));
 function printIfDivisibleByTen(number) {
     if (number % 10 == 0) {
       return "Even 10!";
-    } else {
-        return "";
-    }
+    } else return "no output";
     
 }
 
@@ -78,21 +78,46 @@ console.log(printIfDivisibleByTen(30));
 console.log(printIfDivisibleByTen(90000));
 
 // ANSWER: it prints
-
-
+// no output
+// no output
+// no output
 // Even 10!
-// Even 10!function hundredTwentyFiveTimes(number)
 // Even 10!
+// Even 10!
+
 
 //     Part b) write a for-loop that runs 125 times, each time calling the function you created in part a with the current iteration number.
-// function hundredTwentyFiveTimes(number)
+// function hundredTwentyFiveTimes(number) {
 
+    // const hundredTwentyFiveTimes = (n, func) => {
+    //         for (let i = 0; i < n; i++) {
+    //             printIfDivisibleByTen();
+    //         } 
+    // }
+    // console.log(hundredTwentyFiveTimes(5, printIfDivisibleByTen(10)));
 
+    // Function I will callback
+    function printIfDivisibleByTen(number) {
+        if (number % 10 == 0) {
+          return "Even 10!";
+        } else return "no output";
+    }
+    console.log(printIfDivisibleByTen(30));
+    // function to repeat the callback 125 times
+          
+    const runFunctionNthTimes = (callback, times) => {
+      for (let i = 0; i < times; i++) {
+        callback();    
+      }
+    }
+   
+    console.log(runFunctionNthTimes(printIfDivisibleByTen, 125));
 
+    
+   
 // 6. Write an arrow function that takes in 5 numbers as its parameters and returns the largest one
-const printLargest = (number1, number2, number3, number4, number5) => {
-    return Math.max(number1, number2, number3, number4, number5);
-}
+const printLargest = (...numbers) =>  Math.max(...numbers);
+
 
 console.log(printLargest(3, 7, 29, 45, 1999));
 
