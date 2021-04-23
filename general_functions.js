@@ -28,7 +28,7 @@ const quintupleRepeat = (word) => {
 // function quintupleRepeat(string) {
 //     return string.repeat(5);
 // }
-console.log(quintupleRepeat("Cat"));
+quintupleRepeat("Cat");
 
 // ANSWER: it prints CatCatCatCatCat
 
@@ -87,33 +87,27 @@ console.log(printIfDivisibleByTen(90000));
 
 
 //     Part b) write a for-loop that runs 125 times, each time calling the function you created in part a with the current iteration number.
-// function hundredTwentyFiveTimes(number) {
 
-    // const hundredTwentyFiveTimes = (n, func) => {
-    //         for (let i = 0; i < n; i++) {
-    //             printIfDivisibleByTen();
-    //         } 
-    // }
-    // console.log(hundredTwentyFiveTimes(5, printIfDivisibleByTen(10)));
-
-    // Function I will callback
+    function runFunctionNthTimes(callback, times = 125) {
+        for (let i = 0; i < times; i++) {
+            //     callback();  
+        printIfDivisibleByTen(1);
+        printIfDivisibleByTen(2);
+        printIfDivisibleByTen(32);
+        printIfDivisibleByTen(10);
+        printIfDivisibleByTen(30);
+        printIfDivisibleByTen(90000);}
+    }
+    
     function printIfDivisibleByTen(number) {
         if (number % 10 == 0) {
           return "Even 10!";
-        } else return "no output";
+        } else {return "no output";}
+        console.log(printIfDivisibleByTen);
     }
-    console.log(printIfDivisibleByTen(30));
-    // function to repeat the callback 125 times
-          
-    const runFunctionNthTimes = (callback, times) => {
-      for (let i = 0; i < times; i++) {
-        callback();    
-      }
-    }
-   
-    console.log(runFunctionNthTimes(printIfDivisibleByTen, 125));
-
-    
+     
+    // execute useCallback with the callback as the argument
+    runFunctionNthTimes(printIfDivisibleByTen);
    
 // 6. Write an arrow function that takes in 5 numbers as its parameters and returns the largest one
 const printLargest = (...numbers) =>  Math.max(...numbers);
