@@ -1,12 +1,11 @@
 // 1. Write a function that takes in one parameter and logs that parameter 3 times into the console.
 
-
 const tripleRepeat = string => string.repeat(3);
 // OR LIKE THIS:
+
 // function tripleRepeat(string) {
 //     return string.repeat(3);
 // }
-
 console.log(tripleRepeat("<<This is a triple phrase test>> "));
 
 // ANSWER: it prints
@@ -22,15 +21,18 @@ const quintupleRepeat = (word) => {
         }
         console.log(Result);     
     }
-// / OR LIKE this
+// / OR LIKE this option 2:
+
 // const quintupleRepeat = string => string.repeat(5);
-// OR LIKE THIS:
+
+// OR LIKE THIS option 3:
+
 // function quintupleRepeat(string) {
 //     return string.repeat(5);
 // }
 quintupleRepeat("Cat");
 
-// ANSWER: it prints CatCatCatCatCat
+// ANSWER: all print CatCatCatCatCat
 
 
 // 3. Write a function that takes in two parameters, the first one should be a number and the 2nd one should be a string. The functions returns the 2nd argument repeated as many times as the 1st argument defins. For the inputs `3` and "Woah" it should return `WoahWoahWoah`
@@ -41,6 +43,7 @@ function timesRepetition(number, string) {
 console.log(timesRepetition(3, "Woah"));
 
 // ANSWER: it prints WoahWoahWoah
+
 
 // 4. Write a function that takes in an array of numbers as a parameter. It should return the largest number in the array. For the input `[1,6,83,91,0,-4,1337,5]` it should return `1337`
 
@@ -88,30 +91,36 @@ console.log(printIfDivisibleByTen(90000));
 
 //     Part b) write a for-loop that runs 125 times, each time calling the function you created in part a with the current iteration number.
 
-    function runFunctionNthTimes(callback, times = 125) {
-        for (let i = 0; i < times; i++) {
-            //     callback();  
-        printIfDivisibleByTen(1);
-        printIfDivisibleByTen(2);
-        printIfDivisibleByTen(32);
-        printIfDivisibleByTen(10);
-        printIfDivisibleByTen(30);
-        printIfDivisibleByTen(90000);}
-    }
+function printIfDivisibleByTen(number) {
+    if (number % 10 == 0) {
+      return "Even 10!";
+    } else return "no output";
     
-    function printIfDivisibleByTen(number) {
-        if (number % 10 == 0) {
-          return "Even 10!";
-        } else {return "no output";}
-        console.log(printIfDivisibleByTen);
-    }
-     
-    // execute useCallback with the callback as the argument
-    runFunctionNthTimes(printIfDivisibleByTen);
-   
-// 6. Write an arrow function that takes in 5 numbers as its parameters and returns the largest one
-const printLargest = (...numbers) =>  Math.max(...numbers);
+}
+// HERE IS THE for loop to call the previous function
+for(let i = 0; i < 125; i++){
+    console.log(`${i} ${printIfDivisibleByTen(i)}`);
+}
 
+console.log(printIfDivisibleByTen(1));
+console.log(printIfDivisibleByTen(2));
+console.log(printIfDivisibleByTen(32));
+console.log(printIfDivisibleByTen(10));
+console.log(printIfDivisibleByTen(30));
+console.log(printIfDivisibleByTen(90000));
+
+// ANSWER: it prints :
+// 0 Even 10!
+// 1 no output
+// 2 no output
+// 3 no output
+// 4 no output
+// ...(etc)
+   
+
+// 6. Write an arrow function that takes in 5 numbers as its parameters and returns the largest one
+
+const printLargest = (...numbers) =>  Math.max(...numbers);
 
 console.log(printLargest(3, 7, 29, 45, 1999));
 
@@ -137,6 +146,7 @@ console.log(IsAString("Haciendo pruebas con Javascript"));
 // false
 // true
 
+
 // 8. Write an arrow function that takes in two parameters and returns true if both of them are strings.
 
 const areBothStrings = (string1, string2) => {
@@ -146,8 +156,6 @@ const areBothStrings = (string1, string2) => {
       {return false;}
 }
    
-
-
 console.log(areBothStrings(576, "Hola!"));
 console.log(areBothStrings("Hola!", "Hello"));
 console.log(areBothStrings(([75, 43, "banana"], "Bye")));
@@ -158,6 +166,9 @@ console.log(areBothStrings("Haciendo pruebas con Javascript", "testing functions
 // true
 // false
 // true
+
+
+
 // 9. Write an arrow function that takes in one string. The function should return the first word in the string that was given to it. Examples:
 //     - getFirstWord("Internetting is hard") --> "Internetting"
 //     - getFirstWord("Hello World") --> "Hello"
@@ -174,6 +185,8 @@ console.log(getFirstWord("Achtung! You have entered a danvargerous place!"));
 // Hola!
 // Morning!
 // Achtung!
+
+
 
 // 10. *HARD* Write an arrow function that takes in one string.
 // The function should return a new string that where each word in the input string is repeated by the amount of words in the input string. Examples:
@@ -193,14 +206,19 @@ const wordRepeater = (string) => {
      } 
    }
 return result.join(" ")
-
 }
 
-  
 console.log(wordRepeater("bunny"));
 console.log(wordRepeater("Cat food"));
 console.log(wordRepeater("I am groot"));
 console.log(wordRepeater("O M G ?"));
+
+// ANSWER: it prints
+// bunny
+// Cat Cat food food
+// I I I am am am groot groot groot
+// O O O O M M M M G G G G ? ? ? ?
+
 
 
 // 11. Write a short (single line) arrow function that takes in one string and returns the first character of that string. Examples:
@@ -215,6 +233,7 @@ console.log(firstLetter("quylthulg"));
 // ANSWER: it prints 
 // c
 // q
+
 
 // 12. Write an arrow function that takes in one string and returns a new string. The new string needs to be made from the first letter of each of the words in the input. Examples:
 //     - firstLetters("cat") --> "c"
@@ -236,6 +255,13 @@ console.log(firstLetters("cat"));
 console.log(firstLetters("What the fruit"));
 console.log(firstLetters("MongoDB Express Node React"));
 console.log(firstLetters("What You See Is What You Get"));
+
+// ANSWER igt prints
+// c
+// Wtf
+// MENR
+// WYSIWYG
+
 
 // 13. Write an arrow function that takes in one variable. If that variables is a string, it will return the length of the string. If that variable is an array, it returns the length of the array. If it is something else, it will return null. You might need to search Google to find out how can you identify if the parameter is an array - but there are other ways to solve this too!
 
@@ -268,15 +294,12 @@ const explode = string => {
          return string.split("");
     } else {return null;}
 }
-// const wordRepeater = (string) => {
-//     let words = string.split(" ");
-//     const result = [];
-//     for ( i= 0; i < words.length; i++) {
-//      const word = words[i];
+
 console.log(explode("cat"));
 console.log(explode("41"));
 console.log(explode(""));
 console.log(explode("R & D"));
+
 
 // 15. Reverse engineering challenge 1. Write a function that does this (*BONUS*: write it as a short (one line) arrow function):
 //     - foo("") -> false
